@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Category = require('./schema/category');
 const Item = require('./schema/items');
-require('dotenv').config({ path: './.env' });
+require('dotenv').config({ path: '../.env' });
 
 
 mongoose.connect(process.env.MONGO_URI, {
