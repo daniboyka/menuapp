@@ -1,16 +1,40 @@
-const Category = require('../config/schema/category'); // Asegúrate de tener la ruta correcta a tu modelo
+const Category = require("../config/schema/category"); // Asegúrate de tener la ruta correcta a tu modelo
 
 const getAllCategories = async () => {
+  try {
+    // Utiliza `populate` para obtener también los ítems relacionados con la categoría si es necesario
+    const categories = await Category.find().populate("items");
+    return categories;
+  } catch (error) {
+    console.error("Error al obtener las categorías:", error);
+    throw error;
+  }
+};
+
+const createCategory = async (categoryData) => {
+    console.log("al service entro??")
+    const { name, image } = categoryData;
+
+    const newCategory = new Category({
+        name,
+        image,
+    });
+
+    await newCategory.save();
+    return newCategory;
+};
+
+const findCategoryById = async (categoryId) => {
     try {
-        // Utiliza `populate` para obtener también los ítems relacionados con la categoría si es necesario
-        const categories = await Category.find().populate('items');
-        return categories;
+        const category = await Category.findById(categoryId);
+        return category;
     } catch (error) {
-        console.error('Error al obtener las categorías:', error);
-        throw error;
+        throw new Error('Error al buscar la categoría: ' + error.message);
     }
-}
+};
 
 module.exports = {
-    getAllCategories,
+  getAllCategories,
+  findCategoryById,
+  createCategory,
 };
