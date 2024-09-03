@@ -1,13 +1,22 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import LandingPage from './components/LandingPage/LandingPage';
 
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-        <h1 className="text-3xl font-bold bg-green-700 underline">
-      Hello world!
-    </h1>
-    </div>
+    <Router>
+      <Navbar />
+      <LandingPage />
+      {/* <main className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<Navbar />} />
+    
+        </Routes>
+      </main> */}
+    </Router>
   );
-}
+};
 
 export default App;
