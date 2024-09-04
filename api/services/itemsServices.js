@@ -5,9 +5,8 @@ const { findCategoryById } = require("../services/categoryServices");
 //Funcion para obtener todos los platos
 
 const getAllItems = async () => {
-    console.log()
   try {
-    const items = await Item.find();
+    const items = await Item.find().populate('category', 'name');;
     return items;
   } catch (error) {
     console.error("Error al obtener los platos:", error);
@@ -16,11 +15,10 @@ const getAllItems = async () => {
 };
 
 const createItem = async (itemData) => {
-    console.log("zzzzzz",itemData)
+  console.log("categoryId service",itemData)
   const { name, description, price, image, categoryId } = itemData;
   const category = await findCategoryById(categoryId);
-  if (!category) {
-    console.log("zzzzzz",category)
+  if (!category) {    
     throw new Error("La categoría no existe.");
   }
 

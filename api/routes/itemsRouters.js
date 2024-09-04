@@ -14,10 +14,10 @@ router.get('/items', async (req, res) =>{
 
 // Endpoint para crear un nuevo ítem
 router.post('/items', async (req, res) => {
-    try {
+    try {      
         const newItem = await createItem(req.body);
         res.status(201).json(newItem);
-    } catch (error) {
+    } catch (error) {        
         res.status(400).json({ error: error.message });
     }
 });
