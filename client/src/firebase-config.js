@@ -3,12 +3,13 @@ import { getAuth } from "firebase/auth";
 
 // Tu configuración de Firebase
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBi4Jm6sqeGcyJOTz-9OhpCxYBd6TYWGAI",
+  authDomain: "rotiseria-1d8ac.firebaseapp.com",
+  projectId: "rotiseria-1d8ac",
+  storageBucket: "rotiseria-1d8ac.appspot.com",
+  messagingSenderId: "52237108111",
+  appId: "1:52237108111:web:8d7fb61ff82eca1d5b01fa",
+  measurementId: "G-SX5KT1YL79"
 };
 
 // Inicializa Firebase
