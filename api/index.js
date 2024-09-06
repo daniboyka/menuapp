@@ -1,13 +1,14 @@
 const express = require("express");
-require('./config/db'); 
+const connectDB = require('./config/db'); 
 require('dotenv').config({ path: '../.env' });
 
 const categoryRoutes = require('./routes/categoryRouters'); // Importa las rutas de categorías
 const itemsRoutes = require('./routes/itemsRouters'); // Importa las rutas de platos
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 
+connectDB();
 // Middleware para rutas
 app.use(express.json()); // Asegúrate de poder manejar JSON si es necesario
 

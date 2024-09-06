@@ -4,13 +4,20 @@ const Item = require('./schema/items');
 require('dotenv').config({ path: '../.env' });
 
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('Conectado a MongoDB'))
-.catch((error) => console.error('Error al conectar a MongoDB:', error));
-
+const connectDB = async () => {
+    try {
+      await mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log('Conexión a MongoDB Atlas exitosa');
+    } catch (error) {
+      console.error('Error conectando a MongoDB Atlas:', error);
+      process.exit(1);
+    }
+  };
+  
+  module.exports = connectDB;
 // async function createData() {
 //     try {
 //         const pizzaCategory = new Category({ name: 'Pizzas', image: 'url-de-imagen-pizzas' });
