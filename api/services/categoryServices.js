@@ -1,11 +1,14 @@
 const Category = require("../config/schema/category"); // Asegúrate de tener la ruta correcta a tu modelo
+const Item = require("../config/schema/items"); // Ajusta la ruta según tu estructura
 
 const getAllCategories = async () => {
   try {
+    console.log("entra a serv")
     // Utiliza `populate` para obtener también los ítems relacionados con la categoría si es necesario
-    const categories = await Category.find().populate("items");
+    const categories = await Category.find();
     return categories;
   } catch (error) {
+    console.log("entra a catg")
     console.error("Error al obtener las categorías:", error);
     throw error;
   }

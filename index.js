@@ -1,6 +1,6 @@
 const express = require("express");
 const connectDB = require('./api/config/db'); 
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: './.env' });
 
 const categoryRoutes = require('./api/routes/categoryRouters'); // Importa las rutas de categorías
 const itemsRoutes = require('./api/routes/itemsRouters'); // Importa las rutas de platos

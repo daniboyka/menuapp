@@ -7,6 +7,14 @@ const {
 
 const router = express.Router();
 
+router.get("/categories", async (req, res) => { 
+  try { 
+    const categories = await getAllCategories();
+    res.status(201).json(categories);
+  } catch (error) {  
+    res.status(500).json({ message: "Error al obtener las categorías"});
+  }
+});
 router.get("/categories/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -25,14 +33,6 @@ router.get("/categories/:id", async (req, res) => {
   }
 });
 
-router.get("/categories", async (req, res) => {
-  try {
-    const categories = await getAllCategories();
-    res.status(201).res.json(categories);
-  } catch (error) {
-    res.status(500).json({ message: "Error al obtener las categorías"});
-  }
-});
 
 // Endpoint para crear una nueva categoría
 router.post("/categorie", async (req, res) => {
