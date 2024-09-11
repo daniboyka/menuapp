@@ -1,13 +1,13 @@
 
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import rootReducer from "./index";  // Asegúrate de que este path sea correcto
-import {thunk} from "redux-thunk";
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {thunk} from 'redux-thunk';
+import menuReducer from '../Reducer/menuReducer';
 
-// Configuración del store con thunk y Redux DevTools
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const rootReducer = combineReducers({
+  menu: menuReducer,
+  // otros reducers...
+});
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;
