@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-// require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: './.env' });
 
 
 // Tu configuración de Firebase
