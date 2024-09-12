@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 connectDB();
 // Middleware para rutas
 app.use(express.json()); // Asegúrate de poder manejar JSON si es necesario
-app.use(cors());
+app.use(cors()); // agrego esto
 
 // Rutas
 app.use('/api', categoryRoutes);
